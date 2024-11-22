@@ -1,5 +1,4 @@
 "use client";
-import { Item } from '@radix-ui/react-select';
 import React from 'react'
 import CountUp from "react-countup";
 
