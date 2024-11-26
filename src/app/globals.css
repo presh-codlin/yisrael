@@ -25,8 +25,20 @@
   }
 }
 
+.hoverable-svg, 
+.hoverable-svg path,
+.hoverable-svg circle {
+  transition: fill 0.3s ease; /* Smooth transition */
+}
 
+.hoverable-svg:hover path:not(.t-hover),
+.hoverable-svg:hover circle {
+  fill: #DC143C; /* Hover color */
+}
 
+.t-hover{
+  fill: #232329
+}
 
 
 
