@@ -48,27 +48,30 @@ export const MobileNav = ({isMenuOpen, setIsMenuOpen} : MenuProps) => {
     const pathname = usePathname();
     const onMenuClosed = () =>{
       setIsMenuOpen(false);
+      document.body.classList.remove("navBarActive");
     }
     return (
-      <nav className={`h-screen w-screen justify-end flex fixed top-0 right-0 transition-all duration-300 ease-in-out z-50 ${isMenuOpen? "bg-black/85 opacity-100 visible" : "bg-transparent opacity-0 pointer-events-none invisible"} gap-8`} style={{ transitionProperty: 'background-color' }}>
-        <div className={`flex relative items-center w-[300px] bg-primary shadow-2xl flex-col py-8 px-8 ${!isMenuOpen? "translate-x-full transition-transform duration-300" : "translate-x-0 transition-transform duration-300"}`}>
-          <div className="w-full text-2xl mb-40 mt-32">
-            <h1 className='text-3xl font-semibold text-center'>
-              Yisrael<span className='text-accent'>.</span>
-            </h1>
-            <div className="absolute top-8 right-8"><CloseIcon onClick={()=>onMenuClosed()}/></div>
-          </div>
-          <ul className="flex flex-col gap-8 items-center">
-            {links.map((link, index) =>(
-              <li key={index} className="list-none text-center" >
-                <Link href={link.path} className={`${
-                  link.path === pathname && "text-accent border-b-2 border-accent"
-                } capitalize text-lg font-medium hover:text-accent transition-all duration-300`}>
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <nav className={`h-screen w-screen justify-end flex fixed top-0 right-0 transition-all duration-300 ease-in-out z-50 ${isMenuOpen? "bg-black/85 opacity-100 visible" : "bg-transparent opacity-0 pointer-events-none invisible"} gap-2`} style={{ transitionProperty: 'background-color' }}>
+        <div className={`flex relative items-center justify-between w-[300px] bg-primary shadow-2xl flex-col gap-14 py-8 px-8 ${!isMenuOpen? "translate-x-full transition-transform duration-300" : "translate-x-0 transition-transform duration-300"}`}>
+          <div className="w-full h-full max-h-[480px] pb-6 flex flex-col items-center justify-between">
+            <div className="w-full text-2xl flex justify-between items-center">
+              <h1 className='text-3xl font-semibold text-center'>
+                Yisrael<span className='text-accent'>.</span>
+              </h1>
+              <div><CloseIcon onClick={()=>onMenuClosed()}/></div>
+            </div>
+            <ul className="w-full flex flex-col gap-8 items-center">
+              {links.map((link, index) =>(
+                <li key={index} className="list-none text-center" >
+                  <Link href={link.path} className={`${
+                    link.path === pathname && "text-accent border-b-2 border-accent"
+                  } capitalize text-lg font-medium hover:text-accent transition-all duration-300`}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>  
         </div>
       </nav>
     )
@@ -94,6 +97,7 @@ const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => {
 export const MenuIcon = ({setIsMenuOpen} : {setIsMenuOpen: (input: boolean)=>void}) => {
   const onMenuOpen = () =>{
     setIsMenuOpen(true);
+    document.body.classList.add("navBarActive");
   }
   return (
     <svg
