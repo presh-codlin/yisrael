@@ -8,10 +8,10 @@
     @apply font-primary bg-primary text-white leading-loose;
   }
   .h1{
-    @apply text-[40px] xl:text-[65px] leading-[1.1] font-semibold;
+    @apply text-[36px] xsm:text-[40px] xl:text-[65px] leading-[1.1] font-semibold;
   }
   .h2{
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[32px] xsm:text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
   }
   .h3{
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
@@ -40,5 +40,32 @@
   fill: #232329
 }
 
+.navBarActive{
+  overflow: hidden;
+}
 
+.slide{
+  animation-name: slide;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+  animation-timing-function: 5000ms;
+  animation-delay: 5000ms !important;
+}
 
+@keyframes slider {
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  40%{
+    opacity: 1;
+  }
+  95%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+} 

@@ -14,10 +14,14 @@ export default {
   		padding: '15px'
   	},
   	screens: {
+	  xsm: '550px',
   	  sm: '640px',
   	  md: '768px',
-  	  lg: '960px',
-  	  xl: '1200px'
+  	  mtb: '850px',
+	  tb: '980px',
+	  lg: '1024px',
+  	  xl: '1280px',
+	  laptop: '1440px',
   	},
   	fontFamily: {
   	  primary: 'var(--font-jetbrainsMono)'
